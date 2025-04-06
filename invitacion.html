@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mis 15 Años Salome ✨</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans', sans-serif;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    /* 🎞️ Fondo animado con imágenes */
+    .slider-fondo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -2;
+    }
+
+    .slider {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      animation: deslizar 20s linear infinite;
+    }
+
+    .slider img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @keyframes deslizar {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-75%); }
+    }
+
+    /* Capa oscura encima del fondo */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* 🌟 Tarjeta principal */
+    .hero {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      max-width: 600px;
+      width: 90%;
+      animation: fadeIn 2s ease;
+    }
+
+    /* 🎞 Video pequeño dentro de la tarjeta */
+    .video-en-tarjeta {
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 25px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+
+    .video-en-tarjeta video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 60px;
+      color: #d94ca1;
+      margin: 15px 0;
+      text-shadow: 2px 2px 8px #fff;
+    }
+
+    p {
+      font-size: 18px;
+      color: #333;
+      line-height: 1.7;
+      margin-bottom: 25px;
+      font-weight: 500;
+    }
+
+    .botones button {
+      padding: 12px 25px;
+      margin: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      background: #ff69b4;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .botones button:hover {
+      background: #d94ca1;
+    }
+
+    .formulario {
+      display: none;
+      margin-top: 20px;
+      background: #fff;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+
+    input {
+      display: block;
+      margin: 10px auto;
+      padding: 10px;
+      width: 80%;
+      max-width: 300px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      background: #f9f1f6;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🎞 Fondo con imágenes en movimiento -->
+  <div class="slider-fondo">
+    <div class="slider">
+      <img src="invitacion.jpg" alt="">
+      <img src="invitacion.jpg" alt="">
+      <img src="invitacion.jpg" alt="">
+      <img src="invitacion.jpg" alt="">
+    </div>
+  </div>
+
+  <!-- 🪪 Tarjeta principal -->
+  <div class="hero">
+    <div class="video-en-tarjeta">
+      <video autoplay muted loop>
+        <source src="invitacion.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+      </video>
+    </div>
+
+    <h1>¡Mis 15 Años!</h1>
+    <p>
+      ¡Hola! Soy Salome 💕<br>
+      Me encantaría que me acompañes a celebrar este momento tan especial en mi vida.<br>
+      Será una noche llena de magia, amor, alegría, música y sorpresas 🎉💫<br>
+      ¡No faltes, te estaré esperando con los brazos abiertos!
+    </p>
+
+    <div class="botones">
+      <button onclick="mostrarFormulario()">Confirmar Asistencia</button>
+      <button onclick="verUbicacion()">Ver Ubicación</button>
+    </div>
+
+    <div class="formulario" id="formulario">
+      <form action="https://formsubmit.co/salazamarinzoraida8@gmail.com" method="POST">
+        <input type="text" name="nombre" placeholder="Nombre completo" required>
+        <input type="email" name="correo" placeholder="Tu correo" required>
+        <input type="hidden" name="_subject" value="Nueva Confirmación de Asistencia">
+        <input type="hidden" name="_captcha" value="false">
+        <button type="submit">Enviar Confirmación</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function mostrarFormulario() {
+      document.getElementById("formulario").style.display = "block";
+    }
+
+    function verUbicacion() {
+      window.open("https://maps.app.goo.gl/zbJiNNcxSUVFpRWP8", "_blank");
+    }
+  </script>
+</body>
+</html>
